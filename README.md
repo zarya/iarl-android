@@ -16,5 +16,5 @@ binary build. If you want to get updates on the Android app subscribe to the
 mailing list at [http://list.iarl.org/listinfo/iarl](list.iarl.org).
 
 If you are interested in testing the app, please contact
-[mailto:pd0mz@iarl.org](pd0mz).
+[pd0mz@iarl.org](pd0mz).
 
