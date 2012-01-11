@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/device_adapter_view_linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/device_adapter_view_bearing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="6px"
+            android:src="@drawable/arrow_northeast" />
+
+        <TextView
+            android:id="@+id/device_adapter_view_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="N0CALL"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            android:typeface="monospace" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/device_adapter_view_linearLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="6px"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/device_adapter_view_rx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="1.123,456,7 MHz"
+                android:textSize="5pt"
+                android:textStyle="bold"
+                android:typeface="monospace" />
+
+            <TextView
+                android:id="@+id/device_adapter_view_shift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="+ 600 kHz"
+                android:textSize="5pt"
+                android:textStyle="bold"
+                android:typeface="monospace" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/device_adapter_view_linearLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="6px"
+            android:gravity="right"
+            android:orientation="vertical">
+	        <TextView
+	            android:id="@+id/device_adapter_view_location"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="left"
+	            android:text="Amersfoort"
+	            android:textSize="5pt" />
+	        <TextView
+	            android:id="@+id/device_adapter_view_distance"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="left"
+	            android:text="± 35km"
+	            android:textSize="5pt" />
+		</LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
