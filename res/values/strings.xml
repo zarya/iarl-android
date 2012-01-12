@@ -4,5 +4,7 @@
     <string name="hello">Hello World, IARLMobileActivity!</string>
     <string name="app_name">IARL Mobile</string>
     <string name="n0call">N0CALL</string>
+    <string name="logo">IARL</string>
+    <string name="loading">Loading IARL Mobile</string>
 
 </resources>
