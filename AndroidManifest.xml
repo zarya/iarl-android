@@ -15,8 +15,8 @@
         android:label="@string/app_name">
         <activity
             android:label="@string/app_name"
-            android:name=".IARLMobileActivity"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:name=".SplashScreen"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +25,16 @@
         </activity>
         <activity
             android:label="@string/app_name"
-            android:name=".DeviceActivity"/>
+            android:name=".MainActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+        <activity
+            android:label="@string/app_name"
+            android:name=".DeviceActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+        <activity
+            android:label="@string/app_name"
+            android:name=".ConfigActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
     </application>
 
 </manifest>
