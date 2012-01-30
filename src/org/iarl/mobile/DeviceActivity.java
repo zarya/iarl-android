@@ -67,6 +67,7 @@ public class DeviceActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
+        //Start gps
         getLocationByGPS();
         
         // Initialize cache
