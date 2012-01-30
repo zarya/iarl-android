@@ -49,6 +49,8 @@ public class DeviceActivity extends Activity {
     public DeviceAdapter adapter            = null;
     public ArrayList<Device> devices        = null;
     public static ProgressBar spinner       = null;
+    private LocationManager mlocManager;
+    private LocationListener mlocListener;
 
     private class DeviceComparator implements Comparator<Device> {
         @Override
@@ -65,15 +67,7 @@ public class DeviceActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        //Start GPS
-        LocationManager mlocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        LocationListener mlocListener = new MyLocationListener();
-        
-        //Create gps accuracy criteria
-        Criteria coarse = new Criteria();
-        coarse.setAccuracy(Criteria.ACCURACY_COARSE);
-        
-        mlocManager.requestLocationUpdates( mlocManager.getBestProvider(coarse, true), 500, 1000, mlocListener);
+        getLocationByGPS();
         
         // Initialize cache
         cache = new DeviceCacheHelper(this);
@@ -107,6 +101,18 @@ public class DeviceActivity extends Activity {
             public void onClick(DialogInterface dialog, int which) {
             }
         });
+    }
+    
+    private void getLocationByGPS() {
+    	//Start GPS
+        mlocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        mlocListener = new MyLocationListener();
+        
+        //Create gps accuracy criteria
+        Criteria coarse = new Criteria();
+        coarse.setAccuracy(Criteria.ACCURACY_COARSE);
+        
+        mlocManager.requestLocationUpdates( mlocManager.getBestProvider(coarse, true), 500, 1000, mlocListener);
     }
 
 	@SuppressWarnings("unused")
@@ -254,4 +260,22 @@ public class DeviceActivity extends Activity {
     	}
 
     }
+    /** {@inheritDoc} */
+	@Override
+	protected void onResume() {
+		// Make sure that when the activity has been 
+		// suspended to background, 
+		// the device starts getting locations again
+		getLocationByGPS();
+		super.onResume();
+	}
+
+	@Override
+	protected void onPause() {
+		// Make sure that when the activity goes to 
+		// background, the device stops getting locations
+		// to save battery life.
+		mlocManager.removeUpdates(mlocListener);
+		super.onPause();
+	}
 }
