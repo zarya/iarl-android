@@ -73,7 +73,7 @@ public class DeviceActivity extends Activity {
         Criteria coarse = new Criteria();
         coarse.setAccuracy(Criteria.ACCURACY_COARSE);
         
-        mlocManager.requestLocationUpdates( mlocManager.getBestProvider(coarse, true), 0, 0, mlocListener);
+        mlocManager.requestLocationUpdates( mlocManager.getBestProvider(coarse, true), 500, 1000, mlocListener);
         
         // Initialize cache
         cache = new DeviceCacheHelper(this);
