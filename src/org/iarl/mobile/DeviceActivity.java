@@ -261,21 +261,15 @@ public class DeviceActivity extends Activity {
     	}
 
     }
-    /** {@inheritDoc} */
+
 	@Override
 	protected void onResume() {
-		// Make sure that when the activity has been 
-		// suspended to background, 
-		// the device starts getting locations again
 		getLocationByGPS();
 		super.onResume();
 	}
 
 	@Override
 	protected void onPause() {
-		// Make sure that when the activity goes to 
-		// background, the device stops getting locations
-		// to save battery life.
 		mlocManager.removeUpdates(mlocListener);
 		super.onPause();
 	}
