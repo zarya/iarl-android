@@ -64,15 +64,16 @@ public class DeviceActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
+        
         //Start GPS
         LocationManager mlocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         LocationListener mlocListener = new MyLocationListener();
+        
         //Create gps accuracy criteria
         Criteria coarse = new Criteria();
         coarse.setAccuracy(Criteria.ACCURACY_COARSE);
         
-        mlocManager.requestLocationUpdates( mlocManager.getBestProvider(coarse, true), 500, 1000, mlocListener);
+        mlocManager.requestLocationUpdates( mlocManager.getBestProvider(coarse, true), 0, 0, mlocListener);
         
         // Initialize cache
         cache = new DeviceCacheHelper(this);
@@ -87,7 +88,7 @@ public class DeviceActivity extends Activity {
         list.setAdapter(adapter);
         list.setOnItemClickListener(showDevice);
         setContentView(list);
-        getLocationByIp();
+        
     }
 
     public void showSpinner() {
@@ -108,6 +109,7 @@ public class DeviceActivity extends Activity {
         });
     }
 
+	@SuppressWarnings("unused")
 	private void getLocationByIp() {
         server.getJson("meta/client/info/android/" + Build.VERSION.RELEASE,
             new JsonHttpResponseHandler() {
@@ -230,20 +232,20 @@ public class DeviceActivity extends Activity {
     	@Override
     	public void onLocationChanged(Location loc)
     	{
-            Coordinates newLocation = new Coordinates(loc.getLongitude(),loc.getLatitude());
+            Coordinates newLocation = new Coordinates(loc.getLatitude(),loc.getLongitude());
             updateLocation(newLocation);
     	}
 
     	@Override
     	public void onProviderDisabled(String provider)
     	{
-    		Log.e(null,"GPS Disabled");
+    		Log.e(null,"Location provider Disabled");
     	}
 
     	@Override
     	public void onProviderEnabled(String provider)
     	{
-    		Log.d(null,"GPS Enabled");
+    		Log.d(null,"Location provider Enabled");
     	}
 
     	@Override
